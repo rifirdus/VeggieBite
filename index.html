@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeggieBite - Sensasi Kuliner Nusantara</title>
+    <style>
+        /* CSS: Styling Halaman */
+        :root {
+            --primary-color: #d32f2f; /* Merah gelap/cabai */
+            --secondary-color: #ff9800; /* Oranye hangat */
+            --bg-color: #fffaf0; /* Putih tulang/krem */
+            --text-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Navbar */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 1rem;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero button {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #ffe0b2;
+            transform: scale(1.05);
+        }
+
+        /* Produk Section */
+        .products {
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .products h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 280px;
+            padding: 1rem;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            background-color: #ddd; /* Placeholder jika gambar tidak ada */
+        }
+
+        .card h3 {
+            margin: 1rem 0 0.5rem;
+            color: var(--text-color);
+        }
+
+        .card .desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1; /* Biar harga selalu di bawah meskipun teks deskripsi berbeda panjangnya */
+        }
+
+        .card .price {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Order Form Section */
+        .order-section {
+            padding: 4rem 5%;
+            background-color: white;
+        }
+
+        .order-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .order-container h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .btn-wa {
+            width: 100%;
+            background-color: #25D366; /* Warna khas WhatsApp */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-wa:hover {
+            background-color: #1ebe5d;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h2 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <h1>VeggieBite</h1>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Pilihan Makanan Terbaik untuk Perut Laparmu!</h2>
+        <p>VeggieBite menghadirkan produk nugget berbasis sayuran segar dengan tekstur luar renyah (crispy) dan tekstur dalam yang lembut (juicy).</p>
+        <button onclick="document.getElementById('pesan').scrollIntoView({behavior: 'smooth'});">
+            Pesan Sekarang
+        </button>
+    </section>
+
+    <!-- Produk Section -->
+    <section class="products">
+        <h2>Menu Favorit Kami</h2>
+        <div class="product-container">
+            <!-- Produk 1 -->
+            <div class="card">
+                <img src="img/brokoli.jpg" alt="Nugget Brokoli">
+                <h3>Nugget Brokoli</h3>
+                <p class="desc">Dibuat dari brokoli segar pilihan yang kaya serat dan vitamin. Rasanya gurih dengan tekstur renyah di luar, cocok untuk si kecil yang susah makan sayur.</p>
+                <div class="price">Rp 20.000</div>
+            </div>
+            <!-- Produk 2 -->
+            <div class="card">
+                <img src="img/jamur.jpg" alt="Nugget Jamur Tiram">
+                <h3>Nugget Jamur Tiram</h3>
+                <p class="desc">Sensasi gurih mirip daging ayam berkat penggunaan jamur tiram berkualitas. Alternatif tepat untuk asupan protein nabati yang lezat.</p>
+                <div class="price">Rp 20.000</div>
+            </div>
+            <!-- Produk 3 -->
+            <div class="card">
+                <img src="img/wortel.jpg" alt="Nugget Wortel">
+                <h3>Nugget Wortel</h3>
+                <p class="desc">Warna menarik dan rasa manis alami dari wortel murni. Diperkaya nutrisi baik untuk mata, dibalut tepung panir yang crispy memanjakan lidah.</p>
+                <div class="price">Rp 20.000</div>
+            </div>
+            <!-- Produk 4 (Baru) -->
+            <div class="card">
+                <img src="img/mix.jpg" alt="Nugget Sayur Original">
+                <h3>Nugget Sayur Original</h3>
+                <p class="desc">Memiliki tekstur renyah di luar dan lembut di dalam, serta menawarkan cita rasa gurih dan kandungan gizi dari sayuran.</p>
+                <div class="price">Rp 20.000</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Pemesanan WhatsApp -->
+    <section id="pesan" class="order-section">
+        <div class="order-container">
+            <h2>Form Pemesanan</h2>
+            <!-- Onsubmit kita arahkan ke fungsi JS -->
+            <form id="formOrder" onsubmit="kirimKeWhatsApp(event)">
+                
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" placeholder="Masukkan nama Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="produk">Pilih Menu</label>
+                    <select id="produk" required>
+                        <option value="" disabled selected>-- Pilih Makanan --</option>
+                        <option value="Nugget Brokoli">Nugget Brokoli - Rp 20.000</option>
+                        <option value="Nugget Jamur Tiram">Nugget Jamur Tiram - Rp 20.000</option>
+                        <option value="Nugget Wortel">Nugget Wortel - Rp 20.000</option>
+                        <option value="Nugget Sayur Original">Nugget Bayam Keju - Rp 20.000</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="jumlah">Jumlah Porsi</label>
+                    <input type="number" id="jumlah" min="1" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="alamat">Alamat Pengiriman</label>
+                    <textarea id="alamat" placeholder="Masukkan alamat lengkap (Jalan, RT/RW, Patokan)" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="catatan">Catatan Tambahan (Opsional)</label>
+                    <textarea id="catatan" placeholder="Contoh: Jangan terlalu pedas, tambah saus, dll."></textarea>
+                </div>
+
+                <button type="submit" class="btn-wa">
+                    <!-- Icon SVG WhatsApp ringan -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                    </svg>
+                    Pesan via WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 VeggieBite. Dibuat untuk Pecinta Makanan.</p>
+    </footer>
+
+    <!-- JavaScript: Logika Pengiriman ke WhatsApp -->
+    <script>
+        function kirimKeWhatsApp(event) {
+            // Mencegah halaman reload saat tombol ditekan
+            event.preventDefault();
+
+            // PENTING: Ganti nomor di bawah dengan nomor WhatsApp admin tokomu
+            // Gunakan format kode negara (62 untuk Indonesia) tanpa tanda (+) atau (0)
+            const nomorAdmin = "6285772182367"; 
+
+            // Mengambil nilai (value) dari setiap input di form
+            const nama = document.getElementById("nama").value;
+            const produk = document.getElementById("produk").value;
+            const jumlah = document.getElementById("jumlah").value;
+            const alamat = document.getElementById("alamat").value;
+            const catatan = document.getElementById("catatan").value;
+
+            // Membuat draft pesan text
+            let pesan = `*Halo Admin Veggie!* 🍔%0A%0A`;
+            pesan += `Saya ingin memesan makanan dengan detail sebagai berikut:%0A%0A`;
+            pesan += `- *Nama*: ${nama}%0A`;
+            pesan += `- *Menu*: ${produk}%0A`;
+            pesan += `- *Jumlah*: ${jumlah} porsi%0A`;
+            pesan += `- *Alamat*: ${alamat}%0A`;
+            
+            // Tambahkan catatan jika pembeli mengisinya
+            if (catatan) {
+                pesan += `- *Catatan*: ${catatan}%0A`;
+            }
+
+            pesan += `%0AMohon informasikan total harga dan ongkos kirimnya ya. Terima kasih!`;
+
+            // Membuat link API WhatsApp
+            const urlWhatsApp = `https://wa.me/${nomorAdmin}?text=${pesan}`;
+
+            // Membuka tab baru yang langsung menuju aplikasi WhatsApp
+            window.open(urlWhatsApp, "_blank");
+        }
+    </script>
+
+</body>
+</html>
